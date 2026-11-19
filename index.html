@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semáforo de Latencia Wi-Fi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Semáforo de Latencia Wi-Fi</h1>
+    <p>Medidor visual de latencia desde el navegador</p>
+  </header>
+
+  <div class="layout">
+    <aside class="recuadro">
+      <h2>¿Cómo sirve?</h2>
+      <div class="item-info">
+        <h3>Sin tecnicismos:</h3>
+        <p>Te muestra al instante si tu internet anda fluido o está lento.</p>
+      </div>
+      <div class="item-info">
+        <h3>Con tecnicismos:</h3>
+        <p>Mide el tiempo de ida y vuelta (ms) hacia un servidor para detectar demoras o cortes.</p>
+      </div>
+      <div class="item-info">
+        <h3>Medición con fetch:</h3>
+        <p>Usa peticiones fetch del navegador: es una guía visual, no un ping exacto de consola.</p>
+      </div>
+    </aside>
+
+    <main class="centro">
+      <div class="lcd">
+        <p id="lcd-1">Iniciando...</p>
+        <p id="lcd-2">Ping: -- ms</p>
+      </div>
+
+      <div class="semaforo">
+        <div class="luces-fila">
+          <div id="luz-verde" class="led-item verde">
+            <span class="led"></span>
+            <span class="etiqueta">VERDE (D5)</span>
+            <span class="estado">APAGADO</span>
+          </div>
+          <div id="luz-amarilla" class="led-item amarillo">
+            <span class="led"></span>
+            <span class="etiqueta">AMARILLO (D6)</span>
+            <span class="estado">APAGADO</span>
+          </div>
+          <div id="luz-roja" class="led-item rojo">
+            <span class="led"></span>
+            <span class="etiqueta">ROJO (D7)</span>
+            <span class="estado">APAGADO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resumen">
+        <div class="promedio-box">
+          <span>Promedio de latencia:</span>
+          <strong id="promedio">-- ms</strong>
+        </div>
+      </div>
+
+      <div class="botones">
+        <div class="botones-fila fila-superior">
+          <button id="btn-real" class="btn-real activo">Red real</button>
+          <button id="btn-verde" class="btn-verde">Simular verde (25ms)</button>
+          <button id="btn-amarillo" class="btn-amarillo">Simular amarillo (90ms)</button>
+        </div>
+        <div class="botones-fila fila-inferior">
+          <button id="btn-rojo" class="btn-rojo">Simular rojo (220ms)</button>
+          <button id="btn-sin-red" class="btn-caida">Simulador caida de red</button>
+        </div>
+      </div>
+    </main>
+
+    <aside class="recuadro">
+      <h2>Luces y medición</h2>
+      <div class="item-info">
+        <h3>¿Cómo se mide?</h3>
+        <p>Cronometra en milisegundos cuánto tarda en responder una prueba desde el navegador.</p>
+      </div>
+      <div class="item-info">
+        <h3>Parámetros y colores:</h3>
+        <p><strong>Verde (&lt; 50 ms):</strong> Rápida y estable.</p>
+        <p><strong>Amarillo (50–150 ms):</strong> Demoras leves.</p>
+        <p><strong>Rojo (&gt; 150 ms):</strong> Lenta o sin red.</p>
+      </div>
+      <div class="item-info">
+        <h3>Promedio y pruebas:</h3>
+        <p>Calcula un promedio reciente y permite simular estados o caídas al instante.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="pie">
+    <p>Proyecto Semáforo de Latencia Wi-Fi &middot; Hecho por: Franco Medina, Lautaro Sanchez, Nerea Palacios y Rocio Saavedra.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
